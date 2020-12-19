@@ -30,7 +30,7 @@ const MovieList = (props: Props) => {
                         movieId={movie.id}
                         clicked={() => MovieClickHandler(movie.id)}
                         />
-        })
+        });
     }
 
     return (

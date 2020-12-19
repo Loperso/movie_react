@@ -19,11 +19,12 @@ export const getMoviesAction = (pageNumber: number) => {
     }
 }
 
-export const getMoviesSearchAction = (search: string) => {
+export const getMoviesSearchAction = (search: string, page: number) => {
     return (dispatch: Dispatch<getMovieSearchAction>) => {
         MovieInstance.get('/search/movie', {params: {
             query: search,
-            language: 'es'
+            language: 'es',
+            page: page
         }}).then(res => {
             dispatch({
                 type: GET_MOVIE_SEARCH,

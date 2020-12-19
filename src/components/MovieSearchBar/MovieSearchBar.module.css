@@ -8,6 +8,8 @@
     margin: 20px auto;
     font-size: 30px;
     width: 200px;
+    color: white;
+    font-weight: 700;
 }
 
 .SearchBar {
@@ -21,5 +23,5 @@
 }
 
 .SearchBar:focus {
-    border: 2px solid black;
+    border: 2px solid #303030;
 }

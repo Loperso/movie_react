@@ -15,7 +15,7 @@ function App() {
           <MovieDetails />
         </Route>
 
-        <Route path='/search/:page'>
+        <Route path='/search/:page/:movie?'>
           <MovieSearch />
         </Route>
         <Route path='/'>
