@@ -1,5 +1,6 @@
 export const GET_MOVIES = 'GET_MOVIES';
 export const GET_MOVIE_SEARCH = 'GET_MOVIE_SEARCH';
+export const GET_MOVIE_SORTED = 'GET_MOVIE_SORTED';
 
 interface movieResult {
     adult: Boolean,
@@ -28,4 +29,9 @@ export interface getMovieSearchAction {
     payload: movieList;
 }
 
-export type moviesDispatch = getMovieAction | getMovieSearchAction;
+export interface getMovieSortedAction {
+    type: typeof GET_MOVIE_SORTED,
+    payload: movieList
+}
+
+export type moviesDispatch = getMovieAction | getMovieSearchAction | getMovieSortedAction;

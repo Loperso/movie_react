@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './MoviePageBar.module.css';
+
 interface Props {
     page: number;
     maxPages: number | null;
@@ -14,7 +16,7 @@ const MoviePageBar = (props: Props) => {
         if (props.page === 1) {
             pagesLinks = (
                 <>
-                    <div onClick={() => props.clicked(props.page)}>{props.page}</div>
+                    <div className={styles.ActivePage} onClick={() => props.clicked(props.page)}>{props.page}</div>
                     <div onClick={() => props.clicked(props.page + 1)}>{props.page + 1}</div>
                     <div onClick={() => props.clicked(props.page + 2)}>{props.page + 2}</div>
                 </>
@@ -23,7 +25,7 @@ const MoviePageBar = (props: Props) => {
             pagesLinks = (
                 <>
                     <div onClick={() => props.clicked(props.page - 1)}>{props.page - 1}</div>
-                    <div onClick={() => props.clicked(props.page)}>{props.page}</div>
+                    <div className={styles.ActivePage} onClick={() => props.clicked(props.page)}>{props.page}</div>
                     <div onClick={() => props.clicked(props.page + 1)}>{props.page + 1}</div>
                     <div onClick={() => props.clicked(props.page + 2)}>{props.page + 2}</div>
                 </>
@@ -33,7 +35,7 @@ const MoviePageBar = (props: Props) => {
                 <>
                     <div onClick={() => props.clicked(props.page - 2)}>{props.page - 2}</div>
                     <div onClick={() => props.clicked(props.page - 1)}>{props.page - 1}</div>
-                    <div onClick={() => props.clicked(props.page)}>{props.page}</div>
+                    <div className={styles.ActivePage} onClick={() => props.clicked(props.page)}>{props.page}</div>
                 </>
             ); 
         }else if(props.page === props.maxPages - 1) {
@@ -41,7 +43,7 @@ const MoviePageBar = (props: Props) => {
                 <>
                     <div onClick={() => props.clicked(props.page - 2)}>{props.page - 2}</div>
                     <div onClick={() => props.clicked(props.page - 1)}>{props.page - 1}</div>
-                    <div onClick={() => props.clicked(props.page)}>{props.page}</div>
+                    <div className={styles.ActivePage} onClick={() => props.clicked(props.page)}>{props.page}</div>
                     <div onClick={() => props.clicked(props.page + 1)}>{props.page + 1}</div>
                 </>
             ); 
@@ -50,7 +52,7 @@ const MoviePageBar = (props: Props) => {
                 <>
                     <div onClick={() => props.clicked(props.page - 2)}>{props.page - 2}</div>
                     <div onClick={() => props.clicked(props.page - 1)}>{props.page - 1}</div>
-                    <div onClick={() => props.clicked(props.page)}>{props.page}</div>
+                    <div className={styles.ActivePage} onClick={() => props.clicked(props.page)}>{props.page}</div>
                     <div onClick={() => props.clicked(props.page + 1)}>{props.page + 1}</div>
                     <div onClick={() => props.clicked(props.page + 2)}>{props.page + 2}</div>
                 </>
@@ -60,7 +62,7 @@ const MoviePageBar = (props: Props) => {
     }
 
     return (
-        <div>
+        <div className={styles.MoviePageBar}>
             {pagesLinks}
         </div>
     );

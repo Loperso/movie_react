@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { GET_MOVIES, getMovieAction, getMovieSearchAction, GET_MOVIE_SEARCH } from './MoviesActionTypes';
+import { GET_MOVIES, getMovieAction, getMovieSearchAction, GET_MOVIE_SEARCH, getMovieSortedAction, GET_MOVIE_SORTED } from './MoviesActionTypes';
 
 import MovieInstance from '../../movie-axios';
 
@@ -36,6 +36,15 @@ export const getMoviesSearchAction = (search: string) => {
 
 }
 
-export const getMovieByID = (id: number) => {
-    
+export const getMoviesSorted = (sortName: String) => {
+    return (dispatch: Dispatch<getMovieSortedAction>) => {
+        MovieInstance.get('/discover/movie', {params: {
+            sort_by: sortName
+        }}).then(res => {
+            dispatch({
+                type: GET_MOVIE_SORTED,
+                payload: res.data
+            });
+        });
+    }
 }

@@ -1,0 +1,7 @@
+.MovieFilter {
+    height: 30px;
+    background-color: white;
+    box-shadow: 0 0 4px 0 rgba(170, 170, 170, 0.2), 0 0 20px 0 rgba(212, 212, 212, 0.19);
+    display: flex;
+}
+

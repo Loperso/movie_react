@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootReducerType } from '../../store/Store';
 
@@ -6,7 +6,7 @@ import styles from './MovieSearch.module.css';
 
 import MovieList from '../MovieList/MovieList';
 import MovieSearchBar from '../MovieSearchBar/MovieSearchBar';
-import  {getMoviesAction, getMoviesSearchAction} from '../../store/Movies/MoviesActions';
+import  {getMoviesAction, getMoviesSearchAction, getMoviesSorted} from '../../store/Movies/MoviesActions';
 import MovieFilter from '../MovieFilter/MovieFilter';
 import { useHistory, useParams } from 'react-router-dom';
 import MoviePageBar from '../MoviePageBar/MoviePageBar';
@@ -27,25 +27,33 @@ const MovieSearch = () => {
         movieDispatch(getMoviesAction(+params.page));
     }, [movieDispatch, params.page]);
 
-    useEffect(() => {
-        if(searchState !== ''){
-            movieDispatch(getMoviesSearchAction(searchState));
-        }
-    }, [searchState, movieDispatch]);
+    
 
     const searchMovieHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         searchSetState(e.target.value);
+    }
+
+    const onPressSearchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter'){
+            movieDispatch(getMoviesSearchAction(searchState));
+        }
     }
 
     const onClickPageHandler = (newPage: number) => {
         history.push('' + newPage);
     }
 
+    const onChangeSortHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        movieDispatch(getMoviesSorted(e.target.value));
+    }
 
     return (
         <div className={styles.MovieSearch}>
-            <MovieSearchBar changed={(e) => searchMovieHandler(e)}/>
-            <MovieFilter />
+            <MovieSearchBar 
+                changed={(e) => searchMovieHandler(e)}
+                entered={onPressSearchHandler}
+                />
+            <MovieFilter sortChanged={onChangeSortHandler} />
             <MovieList moviesList={moviesReducer.movies ? moviesReducer.movies: null} />
             <MoviePageBar 
                 page={+params.page} 
