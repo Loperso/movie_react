@@ -1,7 +1,25 @@
 .MovieSearchBar {
-    margin: 0;
+    height: 200px;
+    background-color: #ff5000;
+    padding-top: 20px;
+}
+
+.MovieSearchBar p {
+    margin: 20px auto;
+    font-size: 30px;
+    width: 200px;
 }
 
 .SearchBar {
-    height: 25px;
+    height: 30px;
+    width: 500px;
+    border-radius: 20px;
+    border: none;
+    padding-left: 20px;
+    font-size: 20px;
+    outline: none;
+}
+
+.SearchBar:focus {
+    border: 2px solid black;
 }

@@ -19,7 +19,8 @@ export const getMoviesAction = () => {
 export const getMoviesSearchAction = (search: string) => {
     return (dispatch: Dispatch<getMovieSearchAction>) => {
         MovieInstance.get('/search/movie', {params: {
-            query: search
+            query: search,
+            language: 'es'
         }}).then(res => {
             dispatch({
                 type: GET_MOVIE_SEARCH,
