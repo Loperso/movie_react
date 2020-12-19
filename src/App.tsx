@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 
@@ -15,11 +15,11 @@ function App() {
           <MovieDetails />
         </Route>
 
-        <Route path='/search'>
+        <Route path='/search/:page'>
           <MovieSearch />
         </Route>
         <Route path='/'>
-          <MovieSearch />
+          <Redirect to='/search/1'/>
         </Route>
       </Switch>
     </div>

@@ -15,6 +15,7 @@ interface movieResult {
 
 export type movieList = {
     results: Array<movieResult>
+    total_pages: number
 }
 
 export interface getMovieAction {

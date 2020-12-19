@@ -3,9 +3,12 @@ import { GET_MOVIES, getMovieAction, getMovieSearchAction, GET_MOVIE_SEARCH } fr
 
 import MovieInstance from '../../movie-axios';
 
-export const getMoviesAction = () => {
+export const getMoviesAction = (pageNumber: number) => {
     return (dispatch: Dispatch<getMovieAction>) => {
-        MovieInstance.get('/discover/movie').then(res => {
+        MovieInstance.get('/discover/movie', {params: {
+            page: pageNumber
+        }
+        }).then(res => {
             dispatch({
                 type: GET_MOVIES,
                 payload: res.data
