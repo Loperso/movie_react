@@ -4,12 +4,12 @@ import styles from './MovieFilter.module.css';
 
 const sortByList = [
     {
-        query: 'popularity.asc',
-        name: 'Popularidad ascendente',
-    },
-    {
         query: 'popularity.desc',
         name: 'Popularidad descendente',
+    },
+    {
+        query: 'popularity.asc',
+        name: 'Popularidad ascendente',
     },
     {
         query: 'release_date.asc',
@@ -43,7 +43,7 @@ const MovieFilter = (props: Props) => {
 
     return (
         <div className={styles.MovieFilter}>
-            <div>
+            <div className={styles.SortFilter}>
                 <select onChange={props.sortChanged}>
                     {sort}
                 </select>

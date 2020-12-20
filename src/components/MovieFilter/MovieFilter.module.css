@@ -5,3 +5,18 @@
     display: flex;
 }
 
+.SortFilter select{
+    height: 30px;
+}
+
+.SortFilter select option:checked{
+        background-color: #ff5000;
+        color: white;
+}
+
+.SortFilter select option:hover,
+.SortFilter select option:focus,
+.SortFilter select option::selection{
+    background-color: #ff5000;
+    color: white;
+}

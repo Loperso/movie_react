@@ -6,7 +6,7 @@ import styles from './MovieSearch.module.css';
 
 import MovieList from '../MovieList/MovieList';
 import MovieSearchBar from '../MovieSearchBar/MovieSearchBar';
-import  {getMoviesAction, getMoviesSearchAction, getMoviesSorted} from '../../store/Movies/MoviesActions';
+import  {changeLoading, getMoviesAction, getMoviesSearchAction, getMoviesSorted} from '../../store/Movies/MoviesActions';
 import MovieFilter from '../MovieFilter/MovieFilter';
 import { useHistory, useParams } from 'react-router-dom';
 import MoviePageBar from '../MoviePageBar/MoviePageBar';
@@ -22,7 +22,6 @@ const MovieSearch = () => {
     const movieDispatch = useDispatch();
     const moviesReducer = useSelector((state: RootReducerType) => state.movies);
     const [searchState, searchSetState] = useState('');
-    const [loadingState, loadingSetState] = useState(false);
     const params = useParams<Params>();
     const history = useHistory();
 
@@ -34,29 +33,32 @@ const MovieSearch = () => {
         }
     }, [movieDispatch, params]);
 
-
     const searchMovieHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         searchSetState(e.target.value);
     }
 
     const onPressSearchHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter'){
-            
             history.push('/search/1/' + searchState);
+            movieDispatch(changeLoading());
         }
     }
 
     const onClickPageHandler = (newPage: number) => {
         if (params.movie === undefined) {
             history.push('/search/' + newPage);
+            movieDispatch(changeLoading());
+            searchSetState('');
         }else {
             history.push('/search/' + newPage + '/' + params.movie);
-        }
-        
+            movieDispatch(changeLoading());
+        }  
     }
 
     const onChangeSortHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         movieDispatch(getMoviesSorted(e.target.value));
+        movieDispatch(changeLoading());
+        searchSetState('');
     }
 
 
@@ -81,13 +83,20 @@ const MovieSearch = () => {
         );
     }
 
+    let movieFilter = null;
+
+    if (params.movie === undefined) {
+        movieFilter = <MovieFilter sortChanged={onChangeSortHandler} />;
+    }
+
     return (
         <div className={styles.MovieSearch}>
             <MovieSearchBar 
                 changed={(e) => searchMovieHandler(e)}
                 entered={onPressSearchHandler}
+                inputValue={searchState}
                 />
-            <MovieFilter sortChanged={onChangeSortHandler} />
+            {movieFilter}
             {loading}
         </div>
     );

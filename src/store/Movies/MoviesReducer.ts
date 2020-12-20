@@ -1,4 +1,5 @@
-import { GET_MOVIES, movieList, getMovieAction, GET_MOVIE_SEARCH, GET_MOVIE_SORTED} from './MoviesActionTypes';
+
+import { GET_MOVIES, movieList, getMovieAction, GET_MOVIE_SEARCH, GET_MOVIE_SORTED, moviesDispatch, CHANGE_LOADING} from './MoviesActionTypes';
 
 
 interface stateI {
@@ -11,7 +12,7 @@ const initialState: stateI = {
     isLoading: true
 }
 
-const MoviesReducer = (state= initialState, action: getMovieAction) => {
+const MoviesReducer = (state= initialState, action: moviesDispatch) => {
 
     if (action.type === GET_MOVIES) {
         return {
@@ -31,6 +32,12 @@ const MoviesReducer = (state= initialState, action: getMovieAction) => {
         return {
             movies: action.payload,
             isLoading: false
+        }
+    }
+
+    if (action.type === CHANGE_LOADING) {
+        return {
+            isLoading: !state.isLoading
         }
     }
 
