@@ -23,7 +23,6 @@ const MovieDetails = () => {
 
     let genres = [''];
     if (movie.movie) {
-        console.log(movie.movie);
         genres = movie.movie.genres.map(genre => {
             return genre.name;
         });
