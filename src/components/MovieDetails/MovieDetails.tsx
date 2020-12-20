@@ -5,7 +5,6 @@ import { getMovieByIDAction } from '../../store/Movie/MovieActions';
 import { useParams } from 'react-router-dom';
 
 import styles from './MovieDetails.module.css';
-import CastCard from '../CastCard/CastCard';
 import LoadBar from '../LoadBar/LoadBar';
 
 interface params {
