@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Loperso/movie_react/static/css/main.943d3c60.chunk.css",
+    "main.js": "/Loperso/movie_react/static/js/main.22ec74d7.chunk.js",
+    "main.js.map": "/Loperso/movie_react/static/js/main.22ec74d7.chunk.js.map",
+    "runtime-main.js": "/Loperso/movie_react/static/js/runtime-main.f84af17f.js",
+    "runtime-main.js.map": "/Loperso/movie_react/static/js/runtime-main.f84af17f.js.map",
+    "static/js/2.eb5a9eee.chunk.js": "/Loperso/movie_react/static/js/2.eb5a9eee.chunk.js",
+    "static/js/2.eb5a9eee.chunk.js.map": "/Loperso/movie_react/static/js/2.eb5a9eee.chunk.js.map",
+    "static/js/3.6a71a139.chunk.js": "/Loperso/movie_react/static/js/3.6a71a139.chunk.js",
+    "static/js/3.6a71a139.chunk.js.map": "/Loperso/movie_react/static/js/3.6a71a139.chunk.js.map",
+    "index.html": "/Loperso/movie_react/index.html",
+    "static/css/main.943d3c60.chunk.css.map": "/Loperso/movie_react/static/css/main.943d3c60.chunk.css.map",
+    "static/js/2.eb5a9eee.chunk.js.LICENSE.txt": "/Loperso/movie_react/static/js/2.eb5a9eee.chunk.js.LICENSE.txt",
+    "static/media/left-arrow.172e6dc1.svg": "/Loperso/movie_react/static/media/left-arrow.172e6dc1.svg",
+    "static/media/right-arrow.b7f95d22.svg": "/Loperso/movie_react/static/media/right-arrow.b7f95d22.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f84af17f.js",
+    "static/js/2.eb5a9eee.chunk.js",
+    "static/css/main.943d3c60.chunk.css",
+    "static/js/main.22ec74d7.chunk.js"
+  ]
+}
