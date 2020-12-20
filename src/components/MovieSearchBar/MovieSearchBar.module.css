@@ -25,3 +25,11 @@
 .SearchBar:focus {
     border: 2px solid #303030;
 }
+
+
+@media (max-width: 768px) {
+    .SearchBar {
+        width: 65%;
+        
+    }
+}

@@ -3,3 +3,9 @@
     margin: auto;
     margin-top: 35px;
 }
+
+@media (max-width: 425px) {
+    .MovieList {
+        width: 100%;
+    }
+}

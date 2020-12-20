@@ -36,7 +36,7 @@ const MovieList = (props: Props) => {
     return (
         <div className={styles.MovieList}>
             <h2>Lista de peliculas</h2>
-            <div>
+            <div className={styles.MovieListContainer}>
                 {movieList}
             </div>
         </div>

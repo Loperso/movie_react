@@ -37,8 +37,7 @@ const MovieCard = (props: Props) => {
             </div>
             <div className={styles.DetailsMovie}>
                 <h3><strong>{props.title}</strong></h3>
-                <p><strong>Year: </strong> {props.date}</p>
-                <p><strong>Language: </strong> {props.language}</p>
+                <p>{props.date}</p>
             </div>
         </div>
     );

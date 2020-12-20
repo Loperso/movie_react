@@ -38,3 +38,31 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+@media (max-width: 768px) {
+    .MovieCard {
+        height: auto;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .DetailsMovie {
+        font-size: 13px;
+    }
+
+    .MovieCard {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .PosterImage {
+        width: 100%;
+    }
+
+    .DetailsMovie {
+        font-size: 11px;
+    }
+}
