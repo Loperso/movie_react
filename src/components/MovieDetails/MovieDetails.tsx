@@ -21,8 +21,8 @@ const MovieDetails = () => {
         movieDispatch(getMovieByIDAction(+params.movieId));
     }, [movieDispatch, params]);
 
-    let genres = [''];
-    if (movie.movie) {
+    let genres: string[] = [];
+    if (movie.movie && movie.movie.genres.length !== 0) {
         genres = movie.movie.genres.map(genre => {
             return genre.name;
         });
@@ -33,6 +33,13 @@ const MovieDetails = () => {
     if (!movie.isLoading && movie.movie) {
         const options = { style: 'currency', currency: 'USD' };
         const numberFormat = new Intl.NumberFormat('en-US', options);
+        const voteAverage = movie.movie?.vote_average !== 0 ? <p>{movie.movie?.vote_average}/10</p>: null
+
+        const genresDisplay = genres.length !== 0 ? (<>
+                                            <h4>Géneros</h4>
+                                            <p>{genres.join(' - ')}</p>
+                                        </>)
+                                        : null
 
         details = (
             <>
@@ -43,17 +50,14 @@ const MovieDetails = () => {
                 <section className={styles.DetailsContainer}>
                         <div className={styles.Details}>
                             <h2>{movie.movie?.title}</h2>
-                            <p>{movie.movie?.vote_average}/10</p>
+                            {voteAverage}
                             <p>{movie.movie?.overview}</p>
                             <h4>Fecha de salida</h4>
                             <p>{movie.movie?.release_date}</p>
                             <h4>Ingresos</h4>
                             <p>{numberFormat.format(movie.movie.revenue)}</p>
-                            <h4>Votos Promedio</h4>
-                            <p>{movie.movie?.vote_average}</p>
 
-                            <h4>Géneros</h4>
-                            <p>{genres.join(' - ')}</p>
+                            {genresDisplay}
                         </div>
                 </section>
             </>
