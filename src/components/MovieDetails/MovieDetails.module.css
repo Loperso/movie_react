@@ -58,13 +58,12 @@
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .Details {
+        width: 95%;
+    }
 
-
-.CastListContainer {
-    position: relative;
-    border: 1px solid black;
-}
-
-.CastList {
-    border: 1px solid red;
+    .DetailsContainer {
+        padding-bottom: 20px;
+    }
 }
