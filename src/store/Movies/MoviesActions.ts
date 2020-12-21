@@ -6,7 +6,8 @@ import MovieInstance from '../../movie-axios';
 export const getMoviesAction = (pageNumber: number) => {
     return (dispatch: Dispatch<getMovieAction>) => {
         MovieInstance.get('/discover/movie', {params: {
-            page: pageNumber
+            page: pageNumber,
+            language: 'es'
         }
         }).then(res => {
             dispatch({
@@ -14,7 +15,7 @@ export const getMoviesAction = (pageNumber: number) => {
                 payload: res.data
             });
         }).catch(err => {
-
+            console.error(err)
         });
     }
 }
@@ -40,12 +41,15 @@ export const getMoviesSearchAction = (search: string, page: number) => {
 export const getMoviesSorted = (sortName: String) => {
     return (dispatch: Dispatch<getMovieSortedAction>) => {
         MovieInstance.get('/discover/movie', {params: {
-            sort_by: sortName
+            sort_by: sortName,
+            language: 'es'
         }}).then(res => {
             dispatch({
                 type: GET_MOVIE_SORTED,
                 payload: res.data
             });
+        }).catch(err => {
+            console.error(err)
         });
     }
 }

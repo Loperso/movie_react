@@ -11,6 +11,7 @@ import MovieFilter from '../MovieFilter/MovieFilter';
 import { useHistory, useParams } from 'react-router-dom';
 import MoviePageBar from '../MoviePageBar/MoviePageBar';
 import LoadBar from '../LoadBar/LoadBar';
+import NotFoundSearch from '../NotFoundSearch/NotFoundSearch';
 
 interface Params {
     page: string,
@@ -69,18 +70,24 @@ const MovieSearch = () => {
         );
 
     if (!moviesReducer.isLoading) {
-        loading = (
-            <>
-                <MovieList 
-                    moviesList={moviesReducer.movies ? moviesReducer.movies: null} 
-                    />
-                <MoviePageBar 
-                    page={+params.page} 
-                    maxPages={moviesReducer.movies ? moviesReducer.movies.total_pages : null}
-                    clicked={onClickPageHandler}
-                    />
-            </>
-        );
+        if(moviesReducer.movies?.results.length !== 0 ) {
+            loading = (
+                <>
+                    <MovieList 
+                        moviesList={moviesReducer.movies ? moviesReducer.movies: null} 
+                        />
+                    <MoviePageBar 
+                        page={+params.page} 
+                        maxPages={moviesReducer.movies ? moviesReducer.movies.total_pages : null}
+                        clicked={onClickPageHandler}
+                        />
+                </>
+            );
+        }else {
+            loading = (
+                <NotFoundSearch />
+            );
+        }
     }
 
     let movieFilter = null;
