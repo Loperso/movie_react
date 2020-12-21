@@ -4,14 +4,14 @@ import { RootReducerType } from '../../store/Store';
 
 import styles from './MovieSearch.module.css';
 
-import MovieList from '../MovieList/MovieList';
-import MovieSearchBar from '../MovieSearchBar/MovieSearchBar';
+import MovieList from './MovieList/MovieList';
+import MovieSearchBar from './MovieSearchBar/MovieSearchBar';
 import  {changeLoading, getMoviesAction, getMoviesSearchAction, getMoviesSorted} from '../../store/Movies/MoviesActions';
-import MovieFilter from '../MovieFilter/MovieFilter';
+import MovieFilter from './MovieFilter/MovieFilter';
 import { useHistory, useParams } from 'react-router-dom';
-import MoviePageBar from '../MoviePageBar/MoviePageBar';
+import MoviePageBar from './MoviePageBar/MoviePageBar';
 import LoadBar from '../LoadBar/LoadBar';
-import NotFoundSearch from '../NotFoundSearch/NotFoundSearch';
+import NotFoundSearch from './NotFoundSearch/NotFoundSearch';
 
 interface Params {
     page: string,

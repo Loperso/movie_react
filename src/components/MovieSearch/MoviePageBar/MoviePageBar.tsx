@@ -1,8 +1,8 @@
 import React from 'react';
 
 import styles from './MoviePageBar.module.css';
-import {ReactComponent as LeftButton} from '../../assets/icon/left-arrow.svg';
-import {ReactComponent as RightButton} from '../../assets/icon/right-arrow.svg';
+import {ReactComponent as LeftButton} from '../../../assets/icon/left-arrow.svg';
+import {ReactComponent as RightButton} from '../../../assets/icon/right-arrow.svg';
 
 interface Props {
     page: number;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { movieList } from '../../store/Movies/MoviesActionTypes';
+import { movieList } from '../../../store/Movies/MoviesActionTypes';
 import MovieCard from './MovieCard/MovieCard';
 
 import styles from './MovieList.module.css';
